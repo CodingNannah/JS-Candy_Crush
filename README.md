@@ -15,6 +15,9 @@ Credit & Gratitude:
 Find Kenny's JS Tutorial here:
 https://www.youtube.com/watch?v=8yIKZQMGi0A&list=PLnKe36F30Y4bLhA-st9sC4ZthyV7nsL2Q&index=4
 
+Kenny's image files are here:
+https://github.com/ImKennyYip/candy-crush
+
 Thank you, Kenny! 
 I really enjoy your step-by-step tutorials with helpful explanations. I look forward to learning more from you!
 
