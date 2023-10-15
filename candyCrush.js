@@ -10,6 +10,7 @@ let score = 0;
 let currTile;
 let otherTile;
 
+
 window.onload = function() {
     startGame();
    
@@ -39,7 +40,7 @@ function startGame() {
              // leaving the candy on the other candy 
              tile.addEventListener("dragleave", dragLeave); 
              // dropping the candy on the other candy
-             tile.addEventListener("dragdrop", dragDrop); 
+             tile.addEventListener("drop", dragDrop); 
              // swap the candies
              tile.addEventListener("dragend", dragEnd); 
 
@@ -68,8 +69,8 @@ function dragEnter(e) {
     e.preventDefault();
 }
 
-function dragLeave(e) {
-    e.preventDefault();
+function dragLeave() {
+    
 }
 
 function dragDrop() {
@@ -78,8 +79,12 @@ function dragDrop() {
 }
 
 function dragEnd() {
+    if (currTile.src.includes("blank") || otherTile.src.includes("blank")) {
+        return;
+    }
+
     // not swapping tags; are swapping image sources
-    // check for coordinates of current & other
+    // COORDINATES CHECK: current & other
     let currCoords = currTile.id.split("-"); //id="0-0" --> ["0", "0"]
     let r = parseInt(currCoords[0]);
     let c = parseInt(currCoords[1]);
@@ -88,26 +93,28 @@ function dragEnd() {
     let r2 = parseInt(otherCoords[0]);
     let c2 = parseInt(otherCoords[1]);
 
+    // ADJACENCY CHECK
+    let moveLeft = c2 == c-1 && r == r2;
+    let moveRight = c2 == c+1 && r == r2;
 
+    let moveUp = r2 == r-1 && c == c2;
+    let moveDown = r2 == r+1 && c == c2;
+
+    let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
+
+    if (isAdjacent) {
+        let currImg = currTile.src;
+        let otherImg = otherTile.src;
+        currTile.src = otherImg;
+        otherTile.src = currImg;
+
+        // let validMove = checkValid();
+        // if (!validMove) {
+        //     let currImg = currTile.src;
+        //     let otherImg = otherTile.src;
+        //     currTile.src = otherImg;
+        //     otherTile.src = currImg;  
+        // }
+    }
     
-    let currImg = currTile.src;
-    let otherImg = otherTile.src;
-    currTile.src = otherImg;
-    otherTile.src = currImg;
-
-    // if (currTile.src.includes("blank") || otherTile.src.includes("blank")) {
-    //     return;
-    // }
-
-    
-
-    
-
-    // DIRECTIONAL FUNCTIONALITY
-
-    // let moveLeft = c2 == c-1 && r == r2;
-    // let moveRight = c2 == c+1 && r == r2;
-
-    // let moveUp = r2 == r-1 && c == c2;
-    // let moveDown = r2 == r+1 && c == c2;
 }
