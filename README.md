@@ -7,7 +7,11 @@ To Run This Game in Windows:
 4. To "play" again, refresh the browser.
 ____________________________________
 Game Creation Notes:
+The video for this tutorial was very blurry, which made it hard to see. So, I ended up committing and pushing more often when things were working well.
 
+Kenny uses var. I use const or let.
+
+I really love how Kenny makes boards in JS. I don't have to do all that HTML copying anymore!
 
 ____________________________________
 Credit & Gratitude:
