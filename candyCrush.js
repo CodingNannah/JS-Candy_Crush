@@ -52,8 +52,11 @@ function startGame() {
     console.log(board);
 }
 
+
+// NOTE: dragStart(), dragDrop() & dragEnd() are the most important visual functions; other drag functions are not much more than placeholders  
+
 function dragStart() {
-    // the tile clicked on to drag
+    // "this" is the tile clicked on to drag
     currTile = this;
 }
 
@@ -65,11 +68,46 @@ function dragEnter(e) {
     e.preventDefault();
 }
 
-function dragLeave() {
-
+function dragLeave(e) {
+    e.preventDefault();
 }
 
 function dragDrop() {
-    // this is the target tile (dropped on)
+    // "this" is the target tile (dropped on)
     otherTile = this;
+}
+
+function dragEnd() {
+    // not swapping tags; are swapping image sources
+    // check for coordinates of current & other
+    let currCoords = currTile.id.split("-"); //id="0-0" --> ["0", "0"]
+    let r = parseInt(currCoords[0]);
+    let c = parseInt(currCoords[1]);
+
+    let otherCoords = otherTile.id.split("-");
+    let r2 = parseInt(otherCoords[0]);
+    let c2 = parseInt(otherCoords[1]);
+
+
+    
+    let currImg = currTile.src;
+    let otherImg = otherTile.src;
+    currTile.src = otherImg;
+    otherTile.src = currImg;
+
+    // if (currTile.src.includes("blank") || otherTile.src.includes("blank")) {
+    //     return;
+    // }
+
+    
+
+    
+
+    // DIRECTIONAL FUNCTIONALITY
+
+    // let moveLeft = c2 == c-1 && r == r2;
+    // let moveRight = c2 == c+1 && r == r2;
+
+    // let moveUp = r2 == r-1 && c == c2;
+    // let moveDown = r2 == r+1 && c == c2;
 }
