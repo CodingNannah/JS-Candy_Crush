@@ -13,6 +13,8 @@ Kenny uses var. I use const or let.
 
 I really love how Kenny makes boards in JS. I don't have to do all that HTML copying anymore!
 
+Added candy4 & candy5 + points for score.
+
 ____________________________________
 Credit & Gratitude:
 
