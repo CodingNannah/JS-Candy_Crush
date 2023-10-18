@@ -15,6 +15,9 @@ I really love how Kenny makes boards in JS. I don't have to do all that HTML cop
 
 Added candy4 & candy5 + points for score.
 
+Future Additions: 
+I like this adaptation that he shared. I would make it so: 5 or square4 create stripes that wipe out either entire rows or columns for additional points.
+
 ____________________________________
 Credit & Gratitude:
 
